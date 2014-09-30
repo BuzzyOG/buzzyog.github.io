@@ -1,0 +1,15 @@
+markdown: kramdown
+highlighter: null
+safe: false
+exclude:
+  - README.md
+
+host: http://buzzyog.webatu.com/
+name: BuzzyOG
+desc: Web Designer
+
+meta:
+    author:
+        name: BuzzyOG
+        email: Skype - BitchesBeThuggin
+        github: buzzyog                 

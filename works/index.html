@@ -1,0 +1,729 @@
+---
+layout: nil
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="{{ site.meta.author.name }}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>BuzzyOG(Dev) - Works</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" />
+<style type="text/css">
+*{box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+html,body,h1,h2,h3,h4,h5,h6,ul,ol,li,p,form,dl,dt,dd,figure{margin:0; padding:0; border:0;}
+html,body{height:100%;}
+body{line-height:1.6em; font-family:Helvetica, Arial, sans-serif; color:#555; background: url(http://mbed.qiniudn.com/yanjunyi.com/img/bg-light.jpg) fixed;}
+a{margin:0 2px; color:#06c; text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{margin:0;}
+img{border:0; vertical-align: middle;}
+input,textarea{resize:none;}
+
+@font-face {
+  font-family: 'fa-addition';
+  src: url('http://mbed.qiniudn.com/font/fa-addition.eot?81684682');
+  src: url('http://mbed.qiniudn.com/font/fa-addition.eot?81684682#iefix') format('embedded-opentype'),
+       url('http://mbed.qiniudn.com/font/fa-addition.woff?81684682') format('woff'),
+       url('http://mbed.qiniudn.com/font/fa-addition.ttf?81684682') format('truetype'),
+       url('http://mbed.qiniudn.com/font/fa-addition.svg?81684682#fa-addition') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fa-addition';
+    src: url('http://mbed.qiniudn.com/font/fa-addition.svg?81684682#fa-addition') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fa-addition";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-firefox:before { content: '\e802'; } /* '' */
+.icon-chrome:before { content: '\e803'; } /* '' */
+.icon-google:before { content: '\e800'; } /* '' */
+.icon-git:before { content: '\e801'; } /* '' */
+
+
+.fa:before{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	text-align: center;
+}
+
+i.arrow-left{
+	display: inline-block;
+	position: absolute;
+	top: 12px;
+	left: -8px;
+	width: 15px;
+	height: 15px;
+	overflow: hidden;/*
+	border: 1px solid #e0e0e0;
+	border-width: 1px 0 0 1px;*/
+	background: #fff;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.progress{
+	height: 18px;
+	overflow: hidden;
+	/*padding: 1px;*/
+	border-radius: 4px;
+	background: #666;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.3);
+}
+.progress .bar{
+	height: 100%;
+	padding: 0 10px;
+	border-radius: 3px;
+	background: #82C246;
+	box-shadow: inset 0 1px 1px rgba(255,255,255,.2);
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+}
+
+.main{
+	position:relative; zoom:1;
+	background:rgba(238,238,238,.4);
+}
+
+aside a{
+	color: rgba(255,255,255,.8);
+}
+aside h1{
+	margin: 1em 0;
+	font-weight: normal;
+}
+aside h1 img{
+	margin-right: 1em;
+	padding: 1px;
+	box-shadow: 0 0 2px rgba(0,0,0,.3);
+	background: rgba(255,255,255,.6);
+}
+aside{background-color: #888; font-size:75%; color: rgba(255,255,255,.8);}
+aside .block{position: relative; margin:1em 0; line-height:1.5em;}
+aside .block h3{margin:1em 0; font-size: 1.2em; font-weight: normal; color: rgba(255,255,255,.6);}
+aside .block a{margin:0;}
+
+
+#skills{
+	width: 200px;
+}
+#skills li{
+	list-style: none;
+	width: 200px;
+	margin: 1em 0;
+}
+
+#tools ul:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+#tools li{
+	position: relative;
+	float: left;
+	list-style: none;
+	width: 55px;
+	height: 55px;
+	line-height: 55px;
+	overflow-y: hidden;
+	margin: 0 5px 5px 0;
+	background: #555;
+	text-align: center;
+	font-size: 1.5rem;
+}
+#tools li i{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+
+	-webkit-transition: opacity ease .3s, font-size ease .3s, color ease .3s;
+	-moz-transition: opacity ease .3s, font-size ease .3s, color ease .3s;
+	-ms-transition: opacity ease .3s, font-size ease .3s, color ease .3s;
+	transition: opacity ease .3s, font-size ease .3s, color ease .3s;
+}
+#tools li span{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	font-size: 12px;
+
+	-webkit-transition: top ease .3s, opacity ease .3s;
+	-moz-transition: top ease .3s, opacity ease .3s;
+	-ms-transition: top ease .3s, opacity ease .3s;
+	transition: top ease .3s, opacity ease .3s;
+}
+#tools li:hover i{
+	opacity: 0;
+	font-size: 10%;
+}
+#tools li:hover span{
+	display: block;
+	top: 0;
+	opacity: 1;
+}
+
+#contact{
+	clear: both;
+	width: 300px;
+	margin: auto;
+	margin-top: 3em;
+}
+#contact p{
+	color: #555;
+	text-align: left;
+}
+#contact a{color: #555;}
+#contact .mail:after{
+	content: "mytharcher@gmail.com";
+}
+
+#timeline{
+	position: relative;
+	margin-left: 100px;
+	padding-left: 50px;
+}
+#timeline:before{
+	content: "";
+	display: block;
+	position: absolute;
+	left: -4px;
+	height: 100%;
+	border-left: 4px solid #bbb;
+}
+#timeline p.line-end{
+	position: relative;
+	left: -92px;
+	width: 80px;
+	border-radius: 10px;
+	border: 3px solid #fff;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0,.1);
+	color: #666;
+	text-align: center;
+}
+#timeline ul.item-list{
+	position: relative;
+	list-style: none;
+}
+#timeline li.item{
+	position: relative;
+	margin: 30px 0;
+	/*border: 1px solid #e0e0e0;*/
+	background-color: #fff;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+#timeline li.item .meta{
+	position: absolute;
+	left: -150px;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	overflow: visible;
+}
+#timeline li.item .meta i.fa{
+	position: absolute;
+	right: 32px;
+	width: 40px;
+	height: 40px;
+	padding: 7px;
+	border-radius: 20px;
+	border: 3px solid #fff;
+	background: #fff;
+	font-size: 20px;
+	color: #666;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+#timeline li.item p.date{
+	position: absolute;
+	left: 0;
+	line-height: 40px;
+	/*color: #fff;*/
+	font-weight: bold;
+	text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+#timeline li.item i.arrow-left{
+	left: auto;
+	right: -8px;
+	box-shadow: -1px -1px 0px rgba(0,0,0,.1);
+}
+#timeline li.item .content{
+	position: relative;
+	z-index: 1;
+}
+#timeline li.item header{
+	position: relative;
+	padding: 0 15px;
+	/*border-bottom: 1px solid #e0e0e0;*/
+}
+#timeline li.item header:after{
+	content: "";
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+#timeline li.item header h3{
+	display: block;
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 10px;
+	font-weight: normal;
+}
+#timeline li.item header .links{
+	display: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 40px;
+	padding: 10px;
+	line-height: 20px;
+	font-size: 12px;
+}
+#timeline li.item:hover header .links{
+	display: block;
+}
+#timeline li.item:hover header .link-item{
+	display: inline-block;
+	margin-left: 10px;	
+}
+#timeline li.item header .links a{
+	position: relative;
+	width: 20px;
+	height: 20px;
+	color: #999;
+}
+#timeline li.item header .links a:hover{
+	color: #06c;
+}
+#timeline li.item header .links a i.fa{
+	position: absolute;
+	line-height: 20px;
+	font-size: 1.5em;
+}
+#timeline li.item p.tags{
+	line-height: 40px;
+}
+#timeline li.item span.tag{
+	margin-right: 5px;
+	padding: 2px 10px;
+	border-radius: 3px;
+	background: #ccc;
+	color: #fff;
+	font-size: .8em;
+}
+#timeline li.item figure{
+	border: 1px solid #eee;
+	border-width: 1px 0;
+	padding: 30px 0;
+	text-align: center;
+}
+#timeline li.item article{
+	padding: 15px;
+	font-size: 85%;
+}
+#timeline li.item article p{
+	text-indent: 2em;
+}
+
+@media screen and (min-width:1024px) {
+	.main{
+		min-height: 100%;
+		margin-left: 400px;
+		padding:50px;
+	}
+	aside{
+		position:fixed;
+		width: 400px;
+		left:0;
+		top:0;
+		height:100%;
+		overflow:hidden;
+		padding:30px 50px;
+		text-align: right;
+		box-shadow:-5px 0 5px rgba(0,0,0,.1) inset;
+	}
+
+	aside .block{
+		float: right;
+		width: 100%;
+		max-width: 300px;
+	}
+	aside .block:after{
+		display: block;
+		content: "";
+		clear: both;
+		height: 0;
+		overflow: hidden;
+		visibility: hidden;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.main{
+		padding: 1em;
+	}
+	aside{
+		position: relative;
+		padding: 1em;
+	}
+
+	#contact{
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	#timeline{
+		margin-left: 0;
+		padding-left: 0;
+	}
+	#timeline:before{
+		left: 50%;
+		margin-left: -2px;
+	}
+	#timeline p.line-end{
+		left: 50%;
+		margin-left: -40px;
+	}
+	#timeline li.item{
+		margin-top: 100px;
+	}
+	#timeline li.item .meta{
+		left: auto;
+		right: 50%;
+		top: -60px;
+		margin-right: -20px;
+	}
+	#timeline li.item .meta i.fa{
+		right: 0;
+	}
+	#timeline li.item p.date{
+		left: auto;
+		right: 50px;
+	}
+	#timeline li.item i.arrow-left{
+		display: none;
+		right: auto;
+		left: 12px;
+		top: 52px;
+
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+}
+
+</style>
+</head>
+
+<body class="page-type-timeline">
+
+<aside>
+	<h1><a href=""><img src="35.png" width="100" height="200" /></a><span> Projects </span></h1>
+	
+	<div id="skills" class="block">
+		<h3 data-translate="programming-skills">Skills</h3>
+		<ul>
+			<li>
+				<div class="progress"><div class="bar" style="width:80%">Java</div></div>
+			</li>
+			<li>
+				<div class="progress"><div class="bar" style="width:62%">HTML</div></div>
+			</li>
+			<li>
+				<div class="progress"><div class="bar" style="width:60%">CSS</div></div>
+			</li>
+			<li>
+				<div class="progress"><div class="bar" style="width:67%">PHP</div></div>
+			</li>
+			<li>
+			</li>
+		</ul>
+	</div>
+	
+	<div id="tools" class="block">
+		<h3>Tools Using</h3>
+		<ul>
+			<li><i class="fa fa-windows"></i><span>Windows</span></li>
+			<li><i class="fa fa-skype"></i><span>Skype</span></li>
+			<li><i class="icon-chrome"></i><span>Chrome</span></li>
+			<li><i class="fa fa-google"></i><span>Google</span></li>
+			<li><i class="fa fa-renren"></i><span>Eclipse</span></li>
+			<li><i class="fa fa-github-square"></i><span>GitHub</span></li>
+			<li><i class="fa fa-bitbucket"></i><span>Bukkit</span></li>
+			<li><i class="fa fa-list-alt"></i><span>NotePad+</span></li>
+			<li><i class="fa fa-android"></i><span>Android</span></li>
+			<li><i class="fa fa-apple"></i><span>Apple</span></li>
+		</ul>
+	</div>
+	
+	<div id="contact" class="block">
+		<p><span>Contact Me Through Via </span><a>Skype</a><span> To Get In Touch About A Project!</p>
+	</div>
+</aside>
+
+<div class="main">
+	<div id="timeline">
+		<p class="line-end" data-translate="recently">Java</p>
+		<ul class="item-list">
+			 MineFuse
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-bomb"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="http://i.gyazo.com/afa008a9f7b8e1a318ac613e33b4746c.png" width="675" height="300" />
+					</header>
+						<h4>About MineFuse:</h4>
+						<h5>    ● Terrorists start with a bomb</h5>
+						<h5>	● Terrorists have to plant the bomb at either of the two bomb sites (A, or B)</h5>
+						<h5> 	● The bomb takes 45 seconds to detonate.</h5>
+						<h5> 	● Counter-terrorists have to kill the terrorists, and defuse the bomb (if planted)</h5>
+						<h5>	● When you die, you are "out" for the rest of the round.</h5>
+						<h5>    ● If the bomb blows up, terrorists win, If the bomb is defused, counter-terrorists win.</h5>
+						<h5>    ● If the other team is all killed, your team wins.</h5>
+						<h5> 	● The game is won in a fashion that is best of 30 rounds, with the 15 rounds mark as the team switch</h5>
+						<h5> 	● Compass that points to the bomb.</h5>
+						<h5> 	● Maps over a bungeecord network, to manage server resources and distribute players around.</h5>
+						<h5> 	● Scoreboard information.</h5>
+						<h5> 	● Tab menu information. Stats</h5>
+						<h5> 	● CrankShot Weapons</h5>
+						<h5> 	● Purchase menu to buy before the round starts.</h5>
+						<h5> 	● 15 second delay to purchase before round starts.</h5>
+						<h5> 	● Vault API, CrankShot API</h5>
+						<h5> 	● Reporting Feature</h5>
+						<h5>    ● Web Stats</h5>
+						<h5> 	● SQL Saving Stats System</h5>
+						<h5> 	● Kits - Leather Kit, Iron Kit, Chain Kit, Diamond Kit</h5>
+						<h5> 	● Perks - Random, Scuba, Jug, Ping, CallOut, Extream Conditioning, (Fill In Rest Later)</h5>
+						<h5> 	● Killstreaks - UAV, CarePackage, Attack Dogs, Sentry Gun, Air Strike, Helo Pilot, MW2 Nuke</h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">Java</p>
+		<ul class="item-list">
+			Hub Menu
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-archive"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="http://i.imgur.com/dTiCLWf.png" width="500" height="400" />
+					</header>
+						<h4>About Hub Menu:</h4>
+						<h5>● Compass Menu</h5>
+						<h5>● Double Jump</h5>
+						<h5>● Hat Menu</h5>
+						<h5>● Pet Menu</h5>
+						<h5>● Trail Menu</h5>
+						<h5>● Lobby Selecter</h5>
+						<h5>● BarAPI</h5>
+						<h5>● EchoPetsAPI</h5>
+						<h5>● Villager NCP</h5>
+						<h5>● Voting System</h5>
+						<h5>● Perks Menu</h5>
+						<h5>● Credits System</h5>
+						<h5>● Vault Hook</h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">Java</p>
+		<ul class="item-list">
+			 Spawner Credits
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-linux"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="20.png" width="100" height="100" />
+					</header>
+						<h4>About Spawner Credits</h4>
+						<h5>● Credits System</h5>
+						<h5>● All Mobs</h5>
+						<h5>● Pre-Setup Money Ammout</h5>
+						<h5>● Player Storage System</h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">HTML/CSS</p>
+		<ul class="item-list">
+			 My Website
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-windows"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="http://i.gyazo.com/92e7f2d1b9fdfb64afb2af2edb141456.png" width="675" height="400" />
+					</header>
+						<h4>About My Website</h4>
+						<h5>● Windows 8 Design</h5>
+						<h5>● Clean</h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">Java</p>
+		<ul class="item-list">
+			 Xp NCP
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-compass"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="33.png" width="400" height="200" />
+					</header>
+						<h4>About XP NCP</h4>
+						<h5>● Click Villager</h5>
+						<h5>● Vault Hook(Creating Custom Soon)</h5>
+						<h5>● Buy XP</h5>
+						<h5>● 3 Slots To Buy From {5,15,30} </h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">Java</p>
+		<ul class="item-list">
+			 Hardcore KitPvp
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-codepen"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="8.png" width="400" height="200" />
+					</header>
+						<h4>About Hardcore KitPvp</h4>
+						<h5>● Leveling System</h5>
+						<h5>● TP Randomly</h5>
+						<h5>● Kits</h5>
+						<h5>● Xp Villagers</h5>
+						<h5>● Spawns</h5>
+						<h5>● 1 Map</h5>
+						<h5>● Shop System</h5>
+						<h5>● Neither Portal Center Map For TP</h5>
+				</div>
+			</li>
+		</ul>
+		<p class="line-end">Java</p>
+		<ul class="item-list">
+			 ShopGUI
+			<li class="item">
+				<div class="meta">
+					<i class="fa fa-shopping-cart"></i>
+					<p class="date"></p>
+					<i class="arrow-left"></i>
+				</div>
+				<div class="content">
+					<header>
+						<div class="links"></div>
+						<img src="" width="400" height="200" />
+					</header>
+						<h4>About ShopGUI</h4>
+						<h5>● Shop</h5>
+						<h5>● Configable</h5>
+						<h5>● Vault Hook</h5>
+						<h5>● Shop Settings</h5>
+						<h5>● Ammout, Name, Lore, Slot, Encahanted, Price</h5>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<footer>
+<hr>
+<ul class='nav nav-pills footer'>
+<li class='pull-left'>
+<a>© 2014 BuzzyOG</a>
+</li>
+<li class='pull-right'>
+<a href='#Top'>
+<i class='fa fa-chevron-up'></i>
+Back to top
+</a>
+</li>
+<li class='pull-right'>
+<a href='http://buzzyog.webatu.com/'>
+<i class='fa fa-home'></i>
+Home
+</a>
+</li>
+</ul>
+</footer>
+
+<script type="text/javascript" src="http://elfjs.qiniudn.com/code/elf-0.5.0.min.js"></script>
+<script type="text/javascript" src="/assets/js/site.js"></script>
+
+
+</body>
+</html>
