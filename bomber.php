@@ -7,7 +7,7 @@ PHP SMS Bomber
 <head>
 <meta http-equiv="author" content="The Alchemist"/>
 </head>
-<form name="mailbomb" action="smsbomber.php" method="POST">
+<form name="mailbomb" action="bomber.php" method="POST">
 <p><label for="oper"><b><font size="5" color=0000ff>Victim mobile operator :</b></font></label><br>
 <select size="1" name="oper">
 <option value=>Select Operator</option>
